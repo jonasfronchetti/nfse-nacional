@@ -78,7 +78,7 @@ class Dps implements DpsInterface
 
         $this->init($std);
         $this->dps = $this->dom->createElement('DPS');
-        $this->dps->setAttribute('versao', '1.00');
+        $this->dps->setAttribute('versao', $this->std->version);
         $this->dps->setAttribute('xmlns', 'http://www.sped.fazenda.gov.br/nfse');
 
         $infdps_inner = $this->dom->createElement('infDPS');
@@ -1041,7 +1041,7 @@ class Dps implements DpsInterface
         }
 
         $dps = $this->dom->createElement('DPS');
-        $dps->setAttribute('versao', '1.00');
+        $dps->setAttribute('versao', $this->std->version);
         $dps->setAttribute('xmlns', 'http://www.sped.fazenda.gov.br/nfse');
         $this->dps->appendChild($infdps_inner);
         $this->dom->appendChild($this->dps);
@@ -1059,7 +1059,7 @@ class Dps implements DpsInterface
 
         $this->init($std);
         $this->evento = $this->dom->createElement('pedRegEvento');
-        $this->evento->setAttribute('versao', '1.00');
+        $this->evento->setAttribute('versao', $this->std->version);
         $this->evento->setAttribute('xmlns', 'http://www.sped.fazenda.gov.br/nfse');
 
         $infpedreg_inner = $this->dom->createElement('infPedReg');
@@ -1137,7 +1137,7 @@ class Dps implements DpsInterface
         }
 
         $dps = $this->dom->createElement('DPS');
-        $dps->setAttribute('versao', '1.00');
+        $dps->setAttribute('versao', $this->std->version);
         $dps->setAttribute('xmlns', 'http://www.sped.fazenda.gov.br/nfse');
         $this->evento->appendChild($infpedreg_inner);
         $this->dom->appendChild($this->evento);
