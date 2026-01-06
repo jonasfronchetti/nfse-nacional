@@ -60,7 +60,8 @@ class Dps implements DpsInterface
         if (!empty($dps)) {
             $this->std = $this->propertiesToLower($dps);
             if (empty($this->std->version)) {
-                $this->std->version = '1.00';
+                //dd($this->std);
+                $this->std->version = '1.01';
             }
             //$ver = str_replace('.', '_', $this->std->version);
             //$this->jsonschema = realpath("../storage/jsonSchemes/v$ver/rps.schema");
@@ -1105,13 +1106,6 @@ class Dps implements DpsInterface
             $this->std->infpedreg->chnfse,
             true
         );
-        $this->dom->addChild(
-            $infpedreg_inner,
-            'nPedRegEvento',
-            $this->std->npedregevento,
-            true
-        );
-
 
         if (isset($this->std->infpedreg->e101101)) {
             $e101101_inner = $this->dom->createElement('e101101');
@@ -1229,8 +1223,8 @@ class Dps implements DpsInterface
         $string = 'PRE';
         $string .= $this->std->infpedreg->chnfse; //Chave de acesso da NFS-e (50) +
         $string .= $this->codigoEvento(); //Código do evento (6)
-        $string .= str_pad($this->std->npedregevento, 3, 0, STR_PAD_LEFT); //Número do Pedido de Registro do Evento (nPedRegEvento) (3)
         $this->preId = $string;
+
         return $string;
     }
 
